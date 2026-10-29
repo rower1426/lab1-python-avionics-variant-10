@@ -53,4 +53,6 @@ def calibrate_accelerometer_inplace(data: list) -> list:
     """
     Модифікує елементи списку data "на місці", додаючи +0.05 до кожного елемента через range(len(data)).
     """
-    ...
+    for indx in range(len(data)):
+        data[indx]+=0.05
+    return data
