@@ -11,7 +11,12 @@ def solar_panel_efficiency(theta: float, is_shaded: bool) -> str:
     - theta <= 15 -> "Генерація 100%"
     - 15 < theta <= 60 -> "Генерація 50%"
     """
-    ...
+    if theta>60 or is_shaded:
+        return '0 % generation'
+    if theta <= 15:
+        return '100 % generation'
+    if 15 < theta <=60:
+        return '60 % generation'
 
 # Задача 2: Диспетчер радіокоманд (match-case)
 def dispatch_radio_command(cmd_list: list) -> str:
