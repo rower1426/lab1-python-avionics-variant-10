@@ -26,7 +26,13 @@ def dispatch_radio_command(cmd_list: list) -> str:
     - ["SET_ATTITUDE", roll, pitch, yaw] -> "Attitude set: {roll}, {pitch}, {yaw}"
     - ["REBOOT", "FORCE"] -> "Forced reboot"
     """
-    ...
+    match cmd_list:
+        case ["PING"]:
+            return 'PONG'
+        case ["SET_ATTITUDE", *params]:
+            return f"Attitude set: {params[0]:.2f}, {params[1]:.2f}, {params[2]:.2f}" 
+        case ["REBOOT", "FORCE"]:
+            return "Forced reboot"
 
 # Задача 3: Перевірка каналів зв'язку (for / else)
 def check_communication_channels(channels: list) -> str:
