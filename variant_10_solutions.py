@@ -40,7 +40,13 @@ def check_communication_channels(channels: list) -> str:
     Перебирає список каналів. Якщо є True -> перериває break і повертає "Канал {idx} активний".
     Якщо активних немає -> через else повертає "Аварія: немає зв'язку".
     """
-    ...
+    for channel in enumerate(channels):
+        if channel[1]:
+            return f'Channel {channels.index(channel[1])+1} is active' #повертає номер елемента
+            break
+        else:
+            if channel[0]==len(channels)-1: 
+                return 'Аварія: немає зв`язку'
 
 # Задача 4: Калібрування акселерометра на місці (range)
 def calibrate_accelerometer_inplace(data: list) -> list:
